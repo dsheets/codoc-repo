@@ -1,8 +1,16 @@
 opam-version: "1"
+substs: [ "cli/codocConfig.ml" ]
 build: [
   ["assemblage" "setup"]
   [make]
   [make "install"]
+  ["mkdir" codoc:share]
+  ["cp" "share/codoc.css" codoc:share]
+  ["cp" "-R" "share/templates" codoc:share]
+]
+remove: [
+  ["rm" "%{codoc:share}%/codoc.css"]
+  ["rm" "-r" "%{codoc:share}%/templates"]
 ]
 depends: [
   "ocamlfind"
