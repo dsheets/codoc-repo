@@ -1,0 +1,19 @@
+opam-version: "1.2"
+maintainer: "lpw25@cl.cam.ac.uk"
+authors: [
+  "Leo White <lpw25@cl.cam.ac.uk>"
+]
+license: "ISC"
+version: "0.3.0"
+depends: [
+  "assemblage"
+  "octavius"
+  "ocamlfind"
+]
+build: [
+  ["assemblage" "setup" "--dumpast=false"]
+  [make]
+  [make "install"]
+]
+remove: ["ocamlfind" "remove" "doc-ock"]
+available: [ compiler >= "4.02.2" & compiler <= "4.03" ]
